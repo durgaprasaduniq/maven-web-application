@@ -12,5 +12,10 @@ pipeline {
                 sh 'mvn clean package'
           }
       } 
-    }
-}
+           stage("deploy){
+               steps {
+                    sh 'cp /home/ec2-user/GREATCODER/GREATCODER/workspace/multi-config_master/target/maven-web-application.war /home/ec2-user/apache-tomcat-9.0.115/'
+               }
+          }
+     }
+     } 
