@@ -1,6 +1,5 @@
 pipeline {
-     agent {label "JENKINS"
-} 
+     agent any
        stages {
          stage("get the code") {
             steps {
@@ -14,7 +13,7 @@ pipeline {
       } 
            stage("deploy"){
                steps {
-                    sh 'cp /home/ec2-user/GREATCODER/GREATCODER/workspace/multi-config_master/target/maven-web-application.war /home/ec2-user/apache-tomcat-9.0.115/webapps/ROOT.war'
+                    sh 'cp target/*.war /opt/tomcat/webapps/'
                }
           }
      }
